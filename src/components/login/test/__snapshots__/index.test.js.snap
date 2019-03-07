@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginForm should match snapshot 1`] = `
+<div
+  className="login-form"
+>
+  <Grid
+    style={
+      Object {
+        "height": "100%",
+      }
+    }
+    textAlign="center"
+    verticalAlign="middle"
+  >
+    <GridColumn
+      style={
+        Object {
+          "maxWidth": 450,
+        }
+      }
+    >
+      <Form
+        as="form"
+        size="large"
+      >
+        <Segment
+          stacked={true}
+        >
+          <FormInput
+            as={[Function]}
+            control={[Function]}
+            fluid={true}
+            icon="user"
+            iconPosition="left"
+            placeholder="Username"
+          />
+          <p>
+             Password 
+          </p>
+          <FormInput
+            as={[Function]}
+            control={[Function]}
+            fluid={true}
+            icon="lock"
+            iconPosition="left"
+            placeholder="Password"
+            type="password"
+          />
+          <Button
+            as="button"
+            className="loginButton"
+            size="large"
+          >
+            Login
+          </Button>
+        </Segment>
+      </Form>
+    </GridColumn>
+  </Grid>
+</div>
+`;
