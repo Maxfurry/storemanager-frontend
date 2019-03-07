@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer should match snapshot 1`] = `
+<Grid
+  className="footer"
+  verticalAlign="middle"
+>
+  <GridRow
+    centered={true}
+    className="footerText"
+  >
+    @copyright 2018. Store Manager App by Peerless
+  </GridRow>
+</Grid>
+`;
