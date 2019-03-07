@@ -1,0 +1,122 @@
+.productContainer {
+  margin-top: 70px;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.myProducts {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.ui.card {
+  box-sizing: border-box;
+  margin-left: 25px;
+  flex-basis: 18%;
+}
+
+.ui.card > .content, .ui.cards > .card > .content.productDetails {
+  margin: 0;
+  background-color: #031927;
+  text-align: center;
+  padding: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  max-height: 105px;
+}
+
+.ui.card > .content > .header:not(.ui), .ui.cards > .card > .content > .header:not(.ui).productTitle{
+  color: white;
+}
+
+.ui.card .meta, .ui.cards > .card .meta.productPrice {
+  color: white;
+}
+
+.ui.card.myCard:first-child {
+  margin-top: 14px;
+}
+
+.ui.card.myCard:last-child {
+  margin-bottom: 14px;
+}
+
+.ui.card.myCard img {
+  min-height: 450px;
+}
+
+button.ui.vertical.animated.button.addToCart {
+  margin-top: 10px;
+}
+
+@media only screen and (max-width: 1600px) {
+  .ui.card.myCard {
+    flex-basis: 23%;
+  }
+}
+
+@media only screen and (max-width: 1366px) {
+  .myProducts {
+    margin-left: 100px;
+  }
+
+  .ui.card.myCard {
+    flex-basis: 30%;
+  }
+}
+
+@media only screen and (max-width: 1204px) {
+  .myProducts {
+    margin-left: 50px;
+  }
+
+  .ui.card.myCard img {
+    min-height: 450px;
+  }
+}
+
+@media only screen and (max-width: 170px) {
+  .ui.card.myCard img {
+    min-height: 400px;
+  }
+}
+
+@media only screen and (max-width: 1090px) {
+  .myProducts {
+    margin-left: 5%;
+  }
+
+  .ui.card.myCard {
+    flex-basis: 45%;
+  }
+
+  .ui.card.myCard img {
+    min-height: 300px;
+  }
+}
+
+@media only screen and (max-width: 896px) {
+  .myProducts {
+    margin-left: 15%;
+  }
+
+  .ui.card.myCard {
+    flex-basis: 75%;
+  }
+
+  .ui.card.myCard img {
+    min-height: 300px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .myProducts {
+    margin-left: 0;
+  }
+
+  .ui.card.myCard {
+    flex-basis: 100%;
+    margin-left: 0;
+  }
+}

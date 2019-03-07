@@ -32,7 +32,7 @@ class Header extends Component {
 
   render() {
     return (
-      <div className="header">
+      <div className="myHeader">
         <span className="logo">LOGO</span>
         <div className="headerActions">
           <Input icon placeholder="Search..." className="searchField">
