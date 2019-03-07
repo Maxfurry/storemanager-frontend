@@ -1,0 +1,38 @@
+.myCategories {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  background: #031927;
+  color: white;
+  padding-top: 15px;
+}
+
+.ui.horizontal.very.relaxed.list.category {
+  padding-left: 10px;
+};
+
+.ui.horizontal.very.relaxed.list > .item.categoryLists {
+  padding: 0px;
+  padding-right: 20px;
+};
+
+.content.catContent {
+  display: inline-flex;
+}
+
+.item .header, .ui.list > .item .header.myListText{
+  color: white;
+  padding-right: 3px;
+};
+
+@media only screen and (max-width: 860px) {
+  .ui.horizontal.very.relaxed.list > .item.categoryLists {
+    display: none;
+  };
+}
+
+@media only screen and (max-width: 450px) {
+  .myCategories {
+    top: 220px;
+  }; 
+}

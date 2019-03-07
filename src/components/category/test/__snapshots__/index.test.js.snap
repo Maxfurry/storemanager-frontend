@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Category should match snapshot 1`] = `
+<div
+  className="myCategories"
+>
+  <List
+    className="category"
+    horizontal={true}
+    relaxed="very"
+  >
+    <ListItem>
+      <ListContent
+        className="catContent"
+      >
+        <ListHeader
+          className="myListText"
+        >
+          All Categories
+        </ListHeader>
+        <Icon
+          as="i"
+          name="sidebar"
+        />
+      </ListContent>
+    </ListItem>
+    <ListItem
+      className="categoryLists"
+    >
+      <ListContent
+        className="myListText"
+      >
+        Daniel Louise
+      </ListContent>
+    </ListItem>
+    <ListItem
+      className="categoryLists"
+    >
+      <ListContent>
+        Stevie Feliciano
+      </ListContent>
+    </ListItem>
+    <ListItem
+      className="categoryLists"
+    >
+      <ListContent>
+        Elliot Fu
+      </ListContent>
+    </ListItem>
+  </List>
+</div>
+`;
