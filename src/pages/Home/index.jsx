@@ -1,9 +1,13 @@
 import React from 'react';
 
+import Header from '../../components/header';
+import Footer from '../../components/footer';
+
 export default function Home() {
   return (
     <div>
-      <h1>Welcome to Favlinx</h1>
+      <Header />
+      <Footer />
     </div>
   );
 }

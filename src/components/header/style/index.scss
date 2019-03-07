@@ -1,0 +1,103 @@
+.header {
+  width: 100%;
+  height: 127px;
+  top: 0;
+  background: rgba(108, 207, 83, 0.8);
+}
+
+.logo {
+  position: absolute;
+  left: 10px;
+  width: 250px;
+  height: 75px;
+  margin-top: 25px;
+  background-color: black;
+}
+
+.headerActions {
+  position: absolute;
+  width: auto;
+  margin-top: 50px;
+  right: 10px;
+}
+
+.profileImage {
+  margin: 0 10px;
+}
+
+img.ui.mini.avatar.image.userAvatar {
+  margin: 0;
+}
+
+.ui.icon.input.searchField {
+  width: 800px;
+}
+
+i.search.icon.searchIcon {
+  background-color: #031927;
+  color: white;
+}
+
+.ui.icon.input > i.icon.searchIcon {
+  opacity: 1.0;
+}
+
+i.shopping.cart.big.icon.cartIcon {
+  color:#031927;
+}
+
+.cartCount {
+  color: #BA1200;
+  right: 7px;
+  position: fixed;
+  top: 70px;
+}
+
+@media only screen and (max-width: 1270px) {
+  .ui.icon.input.searchField {
+    width: 600px;
+  }
+}
+
+@media only screen and (max-width: 1070px) {
+  .ui.icon.input.searchField {
+    width: 400px;
+  }
+}
+
+@media only screen and (max-width: 860px) {
+  .ui.icon.input.searchField {
+    position: fixed;
+    top: 120px;
+    left: 5%;
+    width: 90%;
+  }
+
+  .header {
+    height: 180px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .headerActions {
+    position: fixed;
+    top: 70px;
+    margin-top: 50px;
+    right: 10px;
+  }
+
+  .ui.icon.input.searchField {
+    position: fixed;
+    top: 170px;
+    left: 5%;
+    width: 90%;
+  }
+
+  .header {
+    height: 220px;
+  }
+
+  .cartCount {
+    top: 135px;
+  }
+}
