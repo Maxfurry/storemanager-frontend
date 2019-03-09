@@ -4,6 +4,12 @@ const initialState = {
     success: false,
     response: '',
     isAuthenticated: null
+  },
+  product: {
+    productIsLoading: false,
+    productsArray: [],
+    getProductFailed: false,
+    getProductSuccess: false
   }
 };
 

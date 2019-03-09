@@ -4,7 +4,7 @@ node_js:
   - 'node'
 env:
   global:
-    - CC_TEST_REPORTER_ID=$TEST_REPORTER_ID
+    - CC_TEST_REPORTER_ID=f678d4234004c8280d3f040057b29d5672b26d17114524b041b39b1c5c44a514
 cache:
   directories:
     - node_modules
