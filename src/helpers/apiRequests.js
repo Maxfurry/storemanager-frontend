@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+import { config } from './index';
+
 const { API_BASE_URL } = process.env;
 
 const registerUser = async (user) => {
@@ -12,7 +14,13 @@ const authenticateUser = async (user) => {
   return response;
 };
 
+const fetchProducts = async () => {
+  const response = await axios.get(`${API_BASE_URL}/products`, config);
+  return response;
+};
+
 export {
   authenticateUser,
-  registerUser
+  registerUser,
+  fetchProducts
 };
