@@ -1,6 +1,7 @@
 import Home from '../pages/Home';
 import Login from '../pages/Login';
 import NotFound from '../pages/404';
+import Admin from '../pages/Admin';
 
 export default [
   {
@@ -14,6 +15,12 @@ export default [
     component: Login,
     exact: true,
     path: '/login'
+  },
+  {
+    name: 'admin',
+    component: Admin,
+    exact: true,
+    path: '/admin'
   },
   {
     name: '404',
