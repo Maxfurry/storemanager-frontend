@@ -1,62 +1,208 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LoginForm should match snapshot 1`] = `
-<div
-  className="login-form"
+<LoginForm
+  auth={Object {}}
+  userLogin={null}
 >
-  <Grid
-    style={
-      Object {
-        "height": "100%",
-      }
-    }
-    textAlign="center"
-    verticalAlign="middle"
+  <div
+    className="login-form"
   >
-    <GridColumn
+    <Grid
       style={
         Object {
-          "maxWidth": 450,
+          "height": "100%",
         }
       }
+      textAlign="center"
+      verticalAlign="middle"
     >
-      <Form
-        as="form"
-        size="large"
+      <div
+        className="ui center aligned middle aligned grid"
+        style={
+          Object {
+            "height": "100%",
+          }
+        }
       >
-        <Segment
-          stacked={true}
+        <GridColumn
+          style={
+            Object {
+              "maxWidth": 450,
+            }
+          }
         >
-          <FormInput
-            as={[Function]}
-            control={[Function]}
-            fluid={true}
-            icon="user"
-            iconPosition="left"
-            placeholder="Username"
-          />
-          <p>
-             Password 
-          </p>
-          <FormInput
-            as={[Function]}
-            control={[Function]}
-            fluid={true}
-            icon="lock"
-            iconPosition="left"
-            placeholder="Password"
-            type="password"
-          />
-          <Button
-            as="button"
-            className="loginButton"
-            size="large"
+          <div
+            className="column"
+            style={
+              Object {
+                "maxWidth": 450,
+              }
+            }
           >
-            Login
-          </Button>
-        </Segment>
-      </Form>
-    </GridColumn>
-  </Grid>
-</div>
+            <Form
+              as="form"
+              size="large"
+            >
+              <form
+                className="ui large form"
+                onSubmit={[Function]}
+              >
+                <Segment
+                  stacked={true}
+                >
+                  <div
+                    className="ui stacked segment"
+                  >
+                    <FormInput
+                      as={[Function]}
+                      control={[Function]}
+                      fluid={true}
+                      icon="user"
+                      iconPosition="left"
+                      name="name"
+                      onChange={[Function]}
+                      placeholder="Username"
+                      required={true}
+                      value=""
+                    >
+                      <FormField
+                        control={[Function]}
+                        fluid={true}
+                        icon="user"
+                        iconPosition="left"
+                        name="name"
+                        onChange={[Function]}
+                        placeholder="Username"
+                        required={true}
+                        value=""
+                      >
+                        <div
+                          className="required field"
+                        >
+                          <Input
+                            fluid={true}
+                            icon="user"
+                            iconPosition="left"
+                            name="name"
+                            onChange={[Function]}
+                            placeholder="Username"
+                            required={true}
+                            type="text"
+                            value=""
+                          >
+                            <div
+                              className="ui fluid left icon input"
+                            >
+                              <input
+                                name="name"
+                                onChange={[Function]}
+                                placeholder="Username"
+                                required={true}
+                                type="text"
+                                value=""
+                              />
+                              <Icon
+                                as="i"
+                                name="user"
+                              >
+                                <i
+                                  aria-hidden="true"
+                                  className="user icon"
+                                  onClick={[Function]}
+                                />
+                              </Icon>
+                            </div>
+                          </Input>
+                        </div>
+                      </FormField>
+                    </FormInput>
+                    <FormInput
+                      as={[Function]}
+                      control={[Function]}
+                      fluid={true}
+                      icon="lock"
+                      iconPosition="left"
+                      name="password"
+                      onChange={[Function]}
+                      placeholder="Password"
+                      required={true}
+                      type="password"
+                      value=""
+                    >
+                      <FormField
+                        control={[Function]}
+                        fluid={true}
+                        icon="lock"
+                        iconPosition="left"
+                        name="password"
+                        onChange={[Function]}
+                        placeholder="Password"
+                        required={true}
+                        type="password"
+                        value=""
+                      >
+                        <div
+                          className="required field"
+                        >
+                          <Input
+                            fluid={true}
+                            icon="lock"
+                            iconPosition="left"
+                            name="password"
+                            onChange={[Function]}
+                            placeholder="Password"
+                            required={true}
+                            type="password"
+                            value=""
+                          >
+                            <div
+                              className="ui fluid left icon input"
+                            >
+                              <input
+                                name="password"
+                                onChange={[Function]}
+                                placeholder="Password"
+                                required={true}
+                                type="password"
+                                value=""
+                              />
+                              <Icon
+                                as="i"
+                                name="lock"
+                              >
+                                <i
+                                  aria-hidden="true"
+                                  className="lock icon"
+                                  onClick={[Function]}
+                                />
+                              </Icon>
+                            </div>
+                          </Input>
+                        </div>
+                      </FormField>
+                    </FormInput>
+                    <Button
+                      as="button"
+                      className="loginButton"
+                      onClick={[Function]}
+                      size="large"
+                    >
+                      <button
+                        className="ui large button loginButton"
+                        onClick={[Function]}
+                      >
+                        Login
+                      </button>
+                    </Button>
+                  </div>
+                </Segment>
+              </form>
+            </Form>
+          </div>
+        </GridColumn>
+      </div>
+    </Grid>
+  </div>
+</LoginForm>
 `;

@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RedirectLoader should match snapshot 1`] = `
+<div
+  className="redirectLoginLoader"
+>
+  <Loader
+    active={true}
+    inline="centered"
+    size="massive"
+  >
+    Loading...
+  </Loader>
+</div>
+`;
