@@ -4,7 +4,9 @@ exports[`Products should match snapshot 1`] = `
 <div
   className="productContainer"
 >
-  <div>
+  <div
+    className="above"
+  >
     <p>
       Home
     </p>
@@ -48,6 +50,7 @@ exports[`Products should match snapshot 1`] = `
           </ButtonContent>
           <ButtonContent
             hidden={true}
+            onClick={[Function]}
           >
             <Icon
               as="i"
@@ -65,7 +68,9 @@ exports[`Products should match snapshot 2`] = `
 <div
   className="productContainer"
 >
-  <div>
+  <div
+    className="above"
+  >
     <p>
       Home
     </p>

@@ -19,6 +19,11 @@ const productCreated = () => ({
   type: actionTypes.PRODUCT_CREATED
 });
 
+const itemAdded = payload => ({
+  type: actionTypes.ADD_TO_CART,
+  payload
+});
+
 const getProducts = () => async (dispatch) => {
   try {
     dispatch(productLoading());
@@ -63,11 +68,37 @@ const createProduct = state => async (dispatch) => {
   }
 };
 
+const addToCart = product => async (dispatch) => {
+  let cart = [];
+  if (!localStorage.getItem('cart')) {
+    cart.push(product);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    cart = JSON.parse(localStorage.getItem('cart'));
+    return dispatch(itemAdded(cart));
+  }
+  cart = JSON.parse(localStorage.getItem('cart'));
+  cart.push(product);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  cart = JSON.parse(localStorage.getItem('cart'));
+  dispatch(itemAdded(cart));
+};
+
+const removeFromCart = id => async (dispatch) => {
+  let cart = JSON.parse(localStorage.getItem('cart'));
+  cart.splice(id, 1);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  cart = JSON.parse(localStorage.getItem('cart'));
+  dispatch(itemAdded(cart));
+};
+
 export {
   productFetched,
   fetchFailed,
   getProducts,
   productLoading,
   createProduct,
-  productCreated
+  productCreated,
+  addToCart,
+  itemAdded,
+  removeFromCart
 };

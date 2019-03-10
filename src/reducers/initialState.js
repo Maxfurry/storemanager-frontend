@@ -9,8 +9,10 @@ const initialState = {
     productIsLoading: false,
     productsArray: [],
     getProductFailed: false,
-    getProductSuccess: false
-  }
+    getProductSuccess: false,
+    cart: []
+  },
+  cart: []
 };
 
 export default initialState;

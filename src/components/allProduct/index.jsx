@@ -17,7 +17,7 @@ class FetchProducts extends Component {
     const { productsArray } = this.props.product;
     return (
       <div className="productContainer">
-        <div>
+        <div className="above">
           <p>Home</p>
           <h1>Popular</h1>
         </div>
@@ -34,7 +34,8 @@ class FetchProducts extends Component {
                     </Card.Meta>
                     <Button animated="vertical" className="addToCart">
                       <Button.Content visible>Shop</Button.Content>
-                      <Button.Content hidden>
+                      {/* eslint-disable-next-line react/jsx-no-bind */}
+                      <Button.Content hidden onClick={() => this.props.addToCart(product)}>
                         <Icon name="shop" />
                       </Button.Content>
                     </Button>
@@ -65,9 +66,10 @@ export default connect(
 FetchProducts.propTypes = {
   product: PropTypes.object.isRequired,
   productsArray: PropTypes.array,
-  getProducts: PropTypes.func.isRequired
+  getProducts: PropTypes.func.isRequired,
+  addToCart: PropTypes.func.isRequired
 };
 
 FetchProducts.defaultProps = {
-  productsArray: [],
+  productsArray: []
 };
