@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import { authenticateUser } from '../../helpers/apiRequests';
 import { setToken } from '../../helpers';
 import actionTypes from './actionTypes';
@@ -37,7 +38,9 @@ export const userLogin = user => async (dispatch) => {
     const response = await authenticateUser(user);
     setToken(response.data.token);
     dispatch(loginSuccess(response));
+    toast.success('Welcome Back');
   } catch (error) {
     dispatch(loginFailure(error.response));
+    toast.error(error.response.data.message);
   }
 };

@@ -10,6 +10,7 @@ const initialState = {
     productsArray: [],
     getProductFailed: false,
     getProductSuccess: false,
+    productCreateLoading: false,
     cart: []
   },
   cart: []

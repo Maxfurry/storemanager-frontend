@@ -12,7 +12,6 @@ import './style/index.scss';
 
 import plusIcon from '../../images/plus.svg';
 import minusIcon from '../../images/minus.svg';
-import item from '../../images/item-1.png';
 
 class cartComponent extends Component {
   constructor(props) {
@@ -110,7 +109,7 @@ class cartComponent extends Component {
         </div>
 
         <div className="productImage">
-          <img src={item} alt="" />
+          <img src={product.url} alt="" width="120" height="80" />
         </div>
 
         <div className="description">

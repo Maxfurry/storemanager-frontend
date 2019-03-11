@@ -1,5 +1,7 @@
 import axios from 'axios';
-import { authenticateUser, registerUser, fetchProducts } from '../apiRequests';
+import { authenticateUser, registerUser, fetchProducts,
+  createProducts
+} from '../apiRequests';
 
 describe('Test for all user auth. request functions', () => {
   it('should authenticate user', async () => {
@@ -42,5 +44,19 @@ describe('Test for all user auth. request functions', () => {
     const response = await fetchProducts();
     expect(response).toEqual(res);
     axios.get = axiosGet;
+  });
+
+  it('should register user', async () => {
+    const axiosFn = axios.post;
+    const res = {
+      data: {
+        data: {}
+      }
+    };
+
+    axios.post = jest.fn(() => Promise.resolve(res));
+    const response = await createProducts();
+    expect(response).toEqual(res);
+    axios.post = axiosFn;
   });
 });

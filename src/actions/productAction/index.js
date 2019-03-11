@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import { fetchProducts, createProducts, uploadImage } from '../../helpers/apiRequests';
 import actionTypes from './actionTypes';
 
@@ -8,6 +9,10 @@ const productFetched = payload => ({
 
 const productLoading = () => ({
   type: actionTypes.PRODUCT_LOADING
+});
+
+const productCreateLoading = () => ({
+  type: actionTypes.PRODUCT_CREATE_LOADING
 });
 
 const fetchFailed = payload => ({
@@ -45,10 +50,13 @@ const createProduct = state => async (dispatch) => {
 
   let url = '';
 
+  dispatch(productCreateLoading());
+
   try {
     const res = await uploadImage(productFile);
     url = res.data.secure_url;
   } catch (error) {
+    toast.error('Upload Failed');
     return dispatch(fetchFailed(error.res));
   }
 
@@ -60,27 +68,43 @@ const createProduct = state => async (dispatch) => {
   productDetails.url = url;
 
   try {
-    dispatch(productLoading());
     const res = await createProducts(productDetails);
+    toast.success('Product Added Successfull');
     dispatch(productCreated(res));
   } catch (error) {
     dispatch(fetchFailed(error.res));
+    toast.error(error.response.data.message);
   }
 };
 
 const addToCart = product => async (dispatch) => {
   let cart = [];
+  let check = 0;
+
   if (!localStorage.getItem('cart')) {
     cart.push(product);
     localStorage.setItem('cart', JSON.stringify(cart));
     cart = JSON.parse(localStorage.getItem('cart'));
+    toast.success('Product Added Successfull');
     return dispatch(itemAdded(cart));
   }
+
   cart = JSON.parse(localStorage.getItem('cart'));
-  cart.push(product);
-  localStorage.setItem('cart', JSON.stringify(cart));
-  cart = JSON.parse(localStorage.getItem('cart'));
-  dispatch(itemAdded(cart));
+  await cart.map((pro) => {
+    if (pro.product_id === product.product_id) {
+      check = 1;
+    }
+    return check;
+  });
+
+  if (check === 1) {
+    toast.info('Product already added to cart');
+  } else {
+    cart.push(product);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    dispatch(itemAdded(cart));
+    toast.success('Product Added Successfull');
+  }
 };
 
 const removeFromCart = id => async (dispatch) => {
@@ -88,6 +112,7 @@ const removeFromCart = id => async (dispatch) => {
   cart.splice(id, 1);
   localStorage.setItem('cart', JSON.stringify(cart));
   cart = JSON.parse(localStorage.getItem('cart'));
+  toast.success('Product Removed Successfull');
   dispatch(itemAdded(cart));
 };
 
@@ -100,5 +125,6 @@ export {
   productCreated,
   addToCart,
   itemAdded,
-  removeFromCart
+  removeFromCart,
+  productCreateLoading
 };

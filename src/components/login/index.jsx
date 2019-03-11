@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import PropTypes from 'prop-types';
 import { Button, Form, Grid, Segment } from 'semantic-ui-react';
 
@@ -56,30 +58,33 @@ class LoginForm extends Component {
     const { user, errors } = this.state;
     if (this.props.auth.isAuthenticated) { return <Redirect to="/home" />; }
     return (
-      <div className="login-form">
-        <Grid textAlign="center" style={{ height: '100%' }} verticalAlign="middle">
-          <Grid.Column style={{ maxWidth: 450 }}>
-            <Form size="large">
-              <Segment stacked>
-                <Form.Input fluid icon="user" iconPosition="left" placeholder="Username" name="name" value={user.name} onChange={this.handleChange} required />
-                {errors.name && <InlineError text={errors.name} />}
-                <Form.Input
-                  fluid
-                  icon="lock"
-                  iconPosition="left"
-                  placeholder="Password"
-                  type="password"
-                  value={user.password} name="password" onChange={this.handleChange} required />
-                {errors.password && <InlineError text={errors.password} />}
-                {this.props.auth.authIsLoading ? (<Loading size="tiny" />) : null}
-                <Button className="loginButton" size="large" onClick={this.handleSubmit}>
-                  Login
-                </Button>
-              </Segment>
-            </Form>
-          </Grid.Column>
-        </Grid>
-      </div>
+      <Fragment>
+        <ToastContainer autoClose={5000} />
+        <div className="login-form">
+          <Grid textAlign="center" style={{ height: '100%' }} verticalAlign="middle">
+            <Grid.Column style={{ maxWidth: 450 }}>
+              <Form size="large">
+                <Segment stacked>
+                  <Form.Input fluid icon="user" iconPosition="left" placeholder="Username" name="name" value={user.name} onChange={this.handleChange} required />
+                  {errors.name && <InlineError text={errors.name} />}
+                  <Form.Input
+                    fluid
+                    icon="lock"
+                    iconPosition="left"
+                    placeholder="Password"
+                    type="password"
+                    value={user.password} name="password" onChange={this.handleChange} required />
+                  {errors.password && <InlineError text={errors.password} />}
+                  {this.props.auth.authIsLoading ? (<Loading size="tiny" />) : null}
+                  <Button className="loginButton" size="large" onClick={this.handleSubmit}>
+                    Login
+                  </Button>
+                </Segment>
+              </Form>
+            </Grid.Column>
+          </Grid>
+        </div>
+      </Fragment>
     );
   }
 }

@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { connect } from 'react-redux';
 import { Card, Icon, Image, Button } from 'semantic-ui-react';
 
@@ -16,36 +18,39 @@ class FetchProducts extends Component {
   render() {
     const { productsArray } = this.props.product;
     return (
-      <div className="productContainer">
-        <div className="above">
-          <p>Home</p>
-          <h1>Popular</h1>
-        </div>
-        <div className="myProducts">
-          {productsArray.map(product => (
-            <Fragment key={product.product_id}>
-              {product.quantity > 1 ? (
-                <Card className="myCard">
-                  <Image src={product.url} className="previewImage" />
-                  <Card.Content className="productDetails">
-                    <Card.Header className="productTitle">{product.name}</Card.Header>
-                    <Card.Meta className="productPrice">
-                      <span className="date">{product.price}</span>
-                    </Card.Meta>
-                    <Button animated="vertical" className="addToCart">
-                      <Button.Content visible>Shop</Button.Content>
+      <Fragment>
+        <ToastContainer autoClose={5000} />
+        <div className="productContainer">
+          <div className="above">
+            <p>Home</p>
+            <h1>Popular</h1>
+          </div>
+          <div className="myProducts">
+            {productsArray.map(product => (
+              <Fragment key={product.product_id}>
+                {product.quantity > 1 ? (
+                  <Card className="myCard">
+                    <Image src={product.url} className="previewImage" />
+                    <Card.Content className="productDetails">
+                      <Card.Header className="productTitle">{product.name}</Card.Header>
+                      <Card.Meta className="productPrice">
+                        <span className="date">{product.price}</span>
+                      </Card.Meta>
                       {/* eslint-disable-next-line react/jsx-no-bind */}
-                      <Button.Content hidden onClick={() => this.props.addToCart(product)}>
-                        <Icon name="shop" />
-                      </Button.Content>
-                    </Button>
-                  </Card.Content>
-                </Card>
-              ) : null}
-            </Fragment>
-          ))}
+                      <Button animated="vertical" className="addToCart" onClick={() => this.props.addToCart(product)}>
+                        <Button.Content visible>Shop</Button.Content>
+                        <Button.Content hidden>
+                          <Icon name="shop" />
+                        </Button.Content>
+                      </Button>
+                    </Card.Content>
+                  </Card>
+                ) : null}
+              </Fragment>
+            ))}
+          </div>
         </div>
-      </div>
+      </Fragment>
     );
   }
 }

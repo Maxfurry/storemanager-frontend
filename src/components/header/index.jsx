@@ -1,9 +1,13 @@
+/* eslint-disable no-restricted-globals */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Icon, Input, Image, Dropdown } from 'semantic-ui-react';
 
+import { setToken } from '../../helpers/index';
 import * as actions from '../../actions/productAction';
 
 import './style/index.scss';
@@ -25,6 +29,17 @@ class Header extends Component {
   componentDidUpdate(prevProps) {
     if (prevProps.product.cart !== this.props.product.cart) {
       this.getItemsCount();
+    }
+  }
+
+  handleOnClick = (e, { value }) => {
+    if (value === 'sign out') {
+      setToken('');
+      location.href = '/';
+    }
+
+    if (value === 'dashboard') {
+      location.href = '/admin';
     }
   }
 
@@ -52,18 +67,20 @@ class Header extends Component {
     );
 
     const options = [
-      { key: 'user', text: 'Account', icon: 'user' },
-      { key: 'settings', text: 'Settings', icon: 'settings' },
-      { key: 'sign-out', text: 'Sign Out', icon: 'sign out' },
+      { key: 'user', text: 'Account', icon: 'user', value: 'user' },
+      { key: 'dashboard', text: 'Dashboard', icon: 'settings', value: 'dashboard' },
+      { key: 'sign-out', text: 'Sign Out', icon: 'sign out', value: 'sign out' },
     ];
 
-    return <Dropdown trigger={trigger} options={options} pointing="top left" icon={null} />;
+    return <Dropdown trigger={trigger} options={options} pointing="top left" icon={null} onChange={this.handleOnClick} />;
   }
 
   render() {
     return (
       <div className="myHeader">
-        <span className="logo">LOGO</span>
+        <a href="/home">
+          <span className="logo">STORE MANAGER</span>
+        </a>
         <div className="headerActions">
           <Input icon placeholder="Search..." className="searchField">
             <input />
@@ -79,6 +96,7 @@ class Header extends Component {
             </span>
           </a>
         </div>
+        <ToastContainer autoClose={5000} />
       </div>
     );
   }

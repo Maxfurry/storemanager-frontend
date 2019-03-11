@@ -2,7 +2,10 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+import Loading from '../Loader/Loading';
 import * as actions from '../../actions/productAction';
 
 import './style/index.scss';
@@ -121,6 +124,7 @@ class AdminPage extends Component {
           <h2 className="pageHeader">Products</h2>
           <h3>Add Items</h3>
           {this.addProduct()}
+          {this.props.product.productCreateLoading ? (<Loading size="tiny" />) : null}
           <div>
             <h3>Items List</h3>
             {this.listProducts(productsArray)}
@@ -140,6 +144,7 @@ class AdminPage extends Component {
     const { productsArray } = this.props.product;
     return (
       <div className="adminPanel clearfix">
+        <ToastContainer autoClose={5000} />
         {this.sidebar()}
         {this.mainContenet(productsArray)}
       </div>
