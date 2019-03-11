@@ -4,7 +4,8 @@ import initialState from './initialState';
 const {
   PRODUCT_FETCHED,
   PRODUCT_LOADING,
-  PRODUCT_FETCH_FAILED
+  PRODUCT_FETCH_FAILED,
+  PRODUCT_CREATED
 } = actionTypes;
 
 const { product } = initialState;
@@ -27,6 +28,11 @@ export default (state = product, action) => {
       return {
         ...state,
         productIsLoading: false
+      };
+    case PRODUCT_CREATED:
+      return {
+        ...state,
+        productIsLoading: true
       };
     default:
       return state;

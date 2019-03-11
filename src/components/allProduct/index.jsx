@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Card, Icon, Image, Button } from 'semantic-ui-react';
-import faker from 'faker';
 
 import './style/index.scss';
 
@@ -27,7 +26,7 @@ class FetchProducts extends Component {
             <Fragment key={product.product_id}>
               {product.quantity > 1 ? (
                 <Card className="myCard">
-                  <Image src={faker.image.fashion(400, 500)} className="previewImage" />
+                  <Image src={product.url} className="previewImage" />
                   <Card.Content className="productDetails">
                     <Card.Header className="productTitle">{product.name}</Card.Header>
                     <Card.Meta className="productPrice">

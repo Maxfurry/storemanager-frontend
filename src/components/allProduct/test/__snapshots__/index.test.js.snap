@@ -21,7 +21,6 @@ exports[`Products should match snapshot 1`] = `
       <Image
         as="img"
         className="previewImage"
-        src="http://lorempixel.com/400/500/fashion"
         ui={true}
       />
       <CardContent
