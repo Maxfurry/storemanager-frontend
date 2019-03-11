@@ -1,0 +1,7 @@
+const actionTypes = {
+  FETCH_CART_ITEMS: 'FETCH_CART_ITEMS',
+  INCREASE_QUANTITY: 'INCREASE_QUANTITY',
+  DECREASE_QUANTITY: 'DECREASE_QUANTITY'
+};
+
+export default actionTypes;

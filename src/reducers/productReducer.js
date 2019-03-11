@@ -5,7 +5,8 @@ const {
   PRODUCT_FETCHED,
   PRODUCT_LOADING,
   PRODUCT_FETCH_FAILED,
-  PRODUCT_CREATED
+  PRODUCT_CREATED,
+  ADD_TO_CART
 } = actionTypes;
 
 const { product } = initialState;
@@ -33,6 +34,11 @@ export default (state = product, action) => {
       return {
         ...state,
         productIsLoading: true
+      };
+    case ADD_TO_CART:
+      return {
+        ...state,
+        cart: action.payload
       };
     default:
       return state;
