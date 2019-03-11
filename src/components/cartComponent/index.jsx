@@ -96,6 +96,12 @@ class cartComponent extends Component {
     }));
   }
 
+  checkoutProducts = () => {
+    localStorage.setItem('cart', JSON.stringify([]));
+    // eslint-disable-next-line no-restricted-globals
+    location.replace('/home');
+  }
+
   displayProducts = cartItems => (
     cartItems.map(product => (
       <div className="eachItem" key={cartItems.indexOf(product)}>
@@ -150,8 +156,8 @@ class cartComponent extends Component {
                   <h1 className="priceClass">{this.state.totalPrice}</h1>
                 </div>
                 <div className="clearfix" />
-                <Button floated="right" icon labelPosition="left" primary size="big">
-                  <Icon name="cart arrow down" onClick={() => this.checkoutProducts()} />
+                <Button floated="right" icon labelPosition="left" primary size="big" onClick={() => this.checkoutProducts()}>
+                  <Icon name="cart arrow down" />
                   Checkout
                 </Button>
               </Fragment>

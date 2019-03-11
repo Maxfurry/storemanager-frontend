@@ -6,16 +6,16 @@ import Admin from '../pages/Admin';
 
 export default [
   {
-    name: 'home',
-    component: Home,
+    name: 'login',
+    component: Login,
     exact: true,
     path: '/'
   },
   {
-    name: 'login',
-    component: Login,
+    name: 'home',
+    component: Home,
     exact: true,
-    path: '/login'
+    path: '/home'
   },
   {
     name: 'admin',
