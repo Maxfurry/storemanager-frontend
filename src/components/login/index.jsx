@@ -54,7 +54,7 @@ class LoginForm extends Component {
 
   render() {
     const { user, errors } = this.state;
-    if (this.props.auth.isAuthenticated) { return <Redirect to="/" />; }
+    if (this.props.auth.isAuthenticated) { return <Redirect to="/home" />; }
     return (
       <div className="login-form">
         <Grid textAlign="center" style={{ height: '100%' }} verticalAlign="middle">
